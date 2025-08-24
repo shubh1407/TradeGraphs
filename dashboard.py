@@ -26,6 +26,11 @@ def get_crypto_history(coin_id):
 st.title('Cryptocurrency Dashboard')
 
 crypto_list = get_crypto_list()
+if len(crypto_list)==0:
+    crypto_list = [{'id': 'bitcoin', 'symbol': 'btc', 'name': 'Bitcoin'},
+                   {'id': 'ethereum', 'symbol': 'eth', 'name': 'Ethereum'},
+                   {'id': 'ripple', 'symbol': 'xrp', 'name': 'Ripple'}]
+
 crypto_names = [f"{c['name']} ({c['symbol']})" for c in crypto_list]
 crypto_ids = [c['id'] for c in crypto_list]
 
